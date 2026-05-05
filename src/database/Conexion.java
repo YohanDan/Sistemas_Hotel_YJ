@@ -12,7 +12,7 @@ public class Conexion {
     
     private final String DRIVER = "com.mysql.cj.jdbc.Driver";
     private final String URL = "jdbc:mysql://localhost:3306/";
-    private final String DB = "dbsistema";
+    private final String DB = "hotel poo";
     private final String USER = "root";
     private final String PASSWORD = "";
     
