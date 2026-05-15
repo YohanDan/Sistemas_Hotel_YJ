@@ -8,6 +8,10 @@ public abstract class Persona {
     private int telefono;
     private int documento;
     
+    public Persona(){
+        
+    }
+    
     public Persona(int id, String nombre, int telefono, int documento){
         this.id = id;
         this.nombre = nombre;

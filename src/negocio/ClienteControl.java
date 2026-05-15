@@ -22,7 +22,7 @@ public class ClienteControl {
     
     public DefaultTableModel listar(String texto){
         List<Cliente> lista = new ArrayList<>();
-        lista.addALL(DATOS.listar(texto));
+        lista.addAll(DATOS.listar(texto));
         
         String[] titulos = {"Id", "Nombre", "Telefono", "Documento", "tipoCliente"};
         this.modeloTabla = new DefaultTableModel(null, titulos);
@@ -32,7 +32,7 @@ public class ClienteControl {
         this.registroMostrado = 0;
         
         for(Cliente item:lista){
-            if (item.istipoCliente()) {
+            if (item.getTipoCliente().equals("estandar")) {
                 tipoCliente = "estandar";
             }else{
                 tipoCliente = "VIP";
