@@ -30,6 +30,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jMenuBar1 = new javax.swing.JMenuBar();
+        jMenu1 = new javax.swing.JMenu();
+        jMenu2 = new javax.swing.JMenu();
+        jMenuItem8 = new javax.swing.JMenuItem();
+        jMenuBar2 = new javax.swing.JMenuBar();
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
         escritorio = new javax.swing.JDesktopPane(){
             @Override
             protected void paintComponent(Graphics g){
@@ -50,8 +57,22 @@ public class FrmPrincipal extends javax.swing.JFrame {
         mnuRegistros = new javax.swing.JMenu();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem7 = new javax.swing.JMenuItem();
-        jMenuItem8 = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
+
+        jMenu1.setText("File");
+        jMenuBar1.add(jMenu1);
+
+        jMenu2.setText("Edit");
+        jMenuBar1.add(jMenu2);
+
+        jMenuItem8.setText("jMenuItem8");
+
+        jMenu3.setText("File");
+        jMenuBar2.add(jMenu3);
+
+        jMenu4.setText("Edit");
+        jMenuBar2.add(jMenu4);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -87,7 +108,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuItem6.setText("Registrar");
         mnuRegistros.add(jMenuItem6);
 
-        jMenuItem7.setText("Cliente");
+        jMenuItem7.setText("Iniciar");
         jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem7ActionPerformed(evt);
@@ -95,12 +116,23 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
         mnuRegistros.add(jMenuItem7);
 
-        jMenuItem8.setText("Empleado");
-        mnuRegistros.add(jMenuItem8);
-
         menuBar.add(mnuRegistros);
 
         jMenu5.setText("Salir");
+        jMenu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu5ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem9.setText("Cerrar programa");
+        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem9ActionPerformed(evt);
+            }
+        });
+        jMenu5.add(jMenuItem9);
+
         menuBar.add(jMenu5);
 
         setJMenuBar(menuBar);
@@ -123,7 +155,19 @@ public class FrmPrincipal extends javax.swing.JFrame {
         FrmCliente frm = new FrmCliente();
         escritorio.add(frm);
         frm.setVisible(true);
+        frm.setLocation(
+        (escritorio.getWidth() - frm.getWidth()) / 2,
+        (escritorio.getHeight() - frm.getHeight()) / 2
+        );
     }//GEN-LAST:event_jMenuItem7ActionPerformed
+
+    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
+        // COdigo
+    }//GEN-LAST:event_jMenu5ActionPerformed
+
+    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_jMenuItem9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -162,7 +206,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu2;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
@@ -171,6 +221,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenu mnuInformacion;
     private javax.swing.JMenu mnuRegistros;
