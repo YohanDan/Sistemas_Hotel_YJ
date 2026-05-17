@@ -32,7 +32,7 @@ public class ClienteDAO implements CrudimpleInterface<Cliente>{
             ps.setString(1, "%" + texto + "%");
             rs = ps.executeQuery();
             while (rs.next()) {                
-                registros.add(new Cliente(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getString(5)));
+                registros.add(new Cliente(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getInt(4), rs.getBoolean(5)));
             }
             ps.close();
             rs.close();
@@ -50,11 +50,10 @@ public class ClienteDAO implements CrudimpleInterface<Cliente>{
     public boolean insertar(Cliente obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("INSERT INTO cliente(nombre, documento, telefono, tipoCliete) VALUES (?,?,?,?)");
+            ps = CON.conectar().prepareStatement("INSERT INTO cliente(nombre, documento, telefono, tipoCliente) VALUES (?,?,?,1)");
             ps.setString(1, obj.getNombre());
             ps.setInt(2, obj.getDocumento());
             ps.setInt(3, obj.getTelefono());
-            ps.setString(4, obj.getTipoCliente());
             if (ps.executeUpdate()> 0) {
                 resp = true;
             }
@@ -72,12 +71,11 @@ public class ClienteDAO implements CrudimpleInterface<Cliente>{
     public boolean actualizar(Cliente obj) {
         resp = false;
         try {
-            ps = CON.conectar().prepareStatement("UPDATE cliente SET nombre=?, documento=?, telefono=?, tipoCliete=?, WHERE ID_Cliente=?");
+            ps = CON.conectar().prepareStatement("UPDATE cliente SET nombre=?, documento=?, telefono=?, WHERE ID_Cliente=?");
             ps.setString(1, obj.getNombre());
             ps.setInt(2, obj.getDocumento());
             ps.setInt(3, obj.getTelefono());
-            ps.setString(4, obj.getTipoCliente());
-            ps.setInt(5, obj.getId());
+            ps.setInt(4, obj.getId());
             if (ps.executeUpdate()> 0) {
                 resp = true;
             }
@@ -114,7 +112,7 @@ public class ClienteDAO implements CrudimpleInterface<Cliente>{
     public int total() {
         int totalRegistros = 0;
         try {
-            ps = CON.conectar().prepareStatement("SELECT COUNT(ID_Cliente) cliente");
+            ps = CON.conectar().prepareStatement("SELECT COUNT(ID_Cliente) FROM cliente");
             rs = ps.executeQuery();
             while (rs.next()) {                
                 totalRegistros = rs.getInt("COUNT(ID_Cliente)");

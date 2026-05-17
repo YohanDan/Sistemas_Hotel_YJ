@@ -32,28 +32,25 @@ public class ClienteControl {
         this.registroMostrado = 0;
         
         for(Cliente item:lista){
-            if (item.getTipoCliente().equals("estandar")) {
-                tipoCliente = "estandar";
-            }else{
-                tipoCliente = "VIP";
-            }
             registro[0] = Integer.toString(item.getId());
             registro[1] = item.getNombre();
             registro[2] = Integer.toString(item.getTelefono());
             registro[3] = Integer.toString(item.getDocumento());
-            registro[4] = item.getTipoCliente();
+            registro[4] = item.isTipoCliente() ? "Estandar" : "VIP";
             this.modeloTabla.addRow(registro);
             this.registroMostrado = this.registroMostrado + 1;
         }
         return this.modeloTabla;
     }
     
-    public String insertar(String nombre, int telefono, int documento){
+    public String insertar(String nombre, int telefono, int documento, boolean tipoCliente){
         if (DATOS.equals(nombre)) {
             return "El registro ya existe";
         }else{
             obj.setNombre(nombre);
             obj.setTelefono(telefono);
+            obj.setDocumento(documento);
+            obj.setTipoCliente(tipoCliente);
             if (DATOS.insertar(obj)) {
                 return "OK";
             }else{
