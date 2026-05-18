@@ -6,7 +6,7 @@ public class Administrador extends Persona {
     private String cargo;
     private String nivelAcceso;
     
-    public Administrador(int id, String nombre, int telefono, int documento, String cargo, String nivelAcceso){
+    public Administrador(int id, String nombre, String telefono, String documento, String cargo, String nivelAcceso){
         super(id, nombre, telefono, documento);
         this.cargo = cargo;
         this.nivelAcceso = nivelAcceso;

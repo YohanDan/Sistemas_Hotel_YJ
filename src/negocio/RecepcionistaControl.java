@@ -1,56 +1,56 @@
 
 package negocio;
 
-import datos.ClienteDAO;
-import entidades.Cliente;
+import datos.RecepcionistaDAO;
+import entidades.Recepcionista;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.table.DefaultTableModel;
 
-public class ClienteControl {
+public class RecepcionistaControl {
     
-    private final ClienteDAO DATOS;
-    private Cliente obj;
+    private final RecepcionistaDAO DATOS;
+    private Recepcionista obj;
     private DefaultTableModel modeloTabla; 
     private int registroMostrado;
     
-    public ClienteControl(){
-        this.DATOS = new ClienteDAO();
-        this.obj = new Cliente();
+    public RecepcionistaControl(){
+        this.DATOS = new RecepcionistaDAO();
+        this.obj = new Recepcionista();
         this.registroMostrado = 0;
     }
     
     public DefaultTableModel listar(String texto){
-        List<Cliente> lista = new ArrayList<>();
+        List<Recepcionista> lista = new ArrayList<>();
         lista.addAll(DATOS.listar(texto));
         
-        String[] titulos = {"Id", "Nombre", "Telefono", "Documento", "tipoCliente"};
+        String[] titulos = {"Id", "Nombre", "Telefono", "Documento", "Turno"};
         this.modeloTabla = new DefaultTableModel(null, titulos);
         
-        String tipoCliente;
+        String turno;
         String[] registro = new String[5];
         this.registroMostrado = 0;
         
-        for(Cliente item:lista){
+        for(Recepcionista item:lista){
             registro[0] = Integer.toString(item.getId());
             registro[1] = item.getNombre();
             registro[2] = item.getTelefono();
             registro[3] = item.getDocumento();
-            registro[4] = item.isTipoCliente() ? "Estandar" : "VIP";
+            registro[4] = item.isTurno() ? "De dia" : "De noche";
             this.modeloTabla.addRow(registro);
             this.registroMostrado = this.registroMostrado + 1;
         }
         return this.modeloTabla;
     }
     
-    public String insertar(String nombre, String telefono, String documento, boolean tipoCliente){
+    public String insertar(String nombre, String telefono, String documento, boolean turno){
         if (DATOS.equals(nombre)) {
             return "El registro ya existe";
         }else{
             obj.setNombre(nombre);
             obj.setTelefono(telefono);
             obj.setDocumento(documento);
-            obj.setTipoCliente(tipoCliente);
+            obj.setTurno(turno);
             if (DATOS.insertar(obj)) {
                 return "OK";
             }else{

@@ -5,14 +5,14 @@ package entidades;
 public abstract class Persona {
     private int id;
     private String nombre;
-    private int telefono;
-    private int documento;
+    private String telefono;
+    private String documento;
     
     public Persona(){
         
     }
     
-    public Persona(int id, String nombre, int telefono, int documento){
+    public Persona(int id, String nombre, String telefono, String documento){
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
@@ -35,19 +35,19 @@ public abstract class Persona {
         this.nombre = nombre;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
-    public int getDocumento() {
+    public String getDocumento() {
         return documento;
     }
 
-    public void setDocumento(int documento) {
+    public void setDocumento(String documento) {
         this.documento = documento;
     }
     

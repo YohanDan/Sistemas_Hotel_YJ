@@ -3,33 +3,28 @@ package entidades;
 
 
 public class Recepcionista extends Persona {
-    private String cargo;
-    private String turno;
+    private boolean turno;
     
-    public Recepcionista(int id, String nombre, int telefono, int documento, String cargo, String turno){
+    public Recepcionista(){
+        
+    }
+    
+    public Recepcionista(int id, String nombre, String telefono, String documento, boolean turno){
         super(id, nombre, telefono, documento);
-        this.cargo = cargo;
         this.turno = turno;
     }
 
-    public String getCargo() {
-        return cargo;
-    }
-
-    public void setCargo(String cargo) {
-        this.cargo = cargo;
-    }
-
-    public String getTurno() {
+    public boolean isTurno() {
         return turno;
     }
 
-    public void setTurno(String turno) {
+    public void setTurno(boolean turno) {
         this.turno = turno;
     }
 
     @Override
     public String toString() {
-        return "Recepcionista{" + "cargo=" + cargo + ", turno=" + turno + '}';
+        return "Recepcionista{" + "turno=" + turno + '}';
     }
+    
 }
