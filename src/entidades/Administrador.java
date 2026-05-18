@@ -3,33 +3,27 @@ package entidades;
 
 
 public class Administrador extends Persona {
-    private String cargo;
-    private String nivelAcceso;
+    private boolean cargo;
     
-    public Administrador(int id, String nombre, String telefono, String documento, String cargo, String nivelAcceso){
+    public Administrador(){
+        
+    }
+    
+    public Administrador(int id, String nombre, String telefono, String documento, boolean cargo){
         super(id, nombre, telefono, documento);
         this.cargo = cargo;
-        this.nivelAcceso = nivelAcceso;
     }
 
-    public String getCargo() {
+    public boolean isCargo() {
         return cargo;
     }
 
-    public void setCargo(String cargo) {
+    public void setCargo(boolean cargo) {
         this.cargo = cargo;
-    }
-
-    public String getNivelAcceso() {
-        return nivelAcceso;
-    }
-
-    public void setNivelAcceso(String nivelAcceso) {
-        this.nivelAcceso = nivelAcceso;
     }
 
     @Override
     public String toString() {
-        return "Administrador{" + "cargo=" + cargo + ", nivelAcceso=" + nivelAcceso + '}';
+        return "Administrador{" + "cargo=" + cargo + '}';
     }
 }

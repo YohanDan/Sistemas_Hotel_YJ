@@ -4,19 +4,29 @@
  */
 package presentacion;
 
+import negocio.AdministradorControl;
+
 /**
  *
  * @author DANY
  */
 public class PanelAdministrador extends javax.swing.JPanel {
+    private final AdministradorControl CONTROL;
 
     /**
      * Creates new form PanelAdministrador
      */
     public PanelAdministrador() {
         initComponents();
+        this.CONTROL = new AdministradorControl();
+        this.listar("");
     }
-
+    
+    private void listar(String texto){
+        tablaAdministrador.setModel(this.CONTROL.listar(texto));
+        lbTotalRegistro.setText("Mostrando " + this.CONTROL.totalMostrados() + " de un total de " + this.CONTROL.total());
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,7 +42,7 @@ public class PanelAdministrador extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tablaCliente = new javax.swing.JTable();
+        tablaAdministrador = new javax.swing.JTable();
         lbTotalRegistro = new javax.swing.JLabel();
 
         jPanel1.setBackground(new java.awt.Color(0, 153, 204));
@@ -84,7 +94,7 @@ public class PanelAdministrador extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        tablaCliente.setModel(new javax.swing.table.DefaultTableModel(
+        tablaAdministrador.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {},
                 {},
@@ -95,7 +105,7 @@ public class PanelAdministrador extends javax.swing.JPanel {
 
             }
         ));
-        jScrollPane1.setViewportView(tablaCliente);
+        jScrollPane1.setViewportView(tablaAdministrador);
 
         lbTotalRegistro.setText("Registro:");
 
@@ -155,7 +165,7 @@ public class PanelAdministrador extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lbTotalRegistro;
-    private javax.swing.JTable tablaCliente;
+    private javax.swing.JTable tablaAdministrador;
     private javax.swing.JTextField txtBuscarAdministrador;
     // End of variables declaration//GEN-END:variables
 }

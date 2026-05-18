@@ -5,6 +5,7 @@
 package presentacion;
 
 import javax.swing.JOptionPane;
+import negocio.AdministradorControl;
 import negocio.ClienteControl;
 import negocio.RecepcionistaControl;
 
@@ -15,6 +16,7 @@ import negocio.RecepcionistaControl;
 public class PanelRegistro extends javax.swing.JPanel {
     private final ClienteControl CONTROLCLIENTE;
     private final RecepcionistaControl CONTROLRECEPCIONISTAS;
+    private final AdministradorControl CONTROLADMINISTRADOR;
     
     /**
      * Creates new form PanelRegistro
@@ -23,6 +25,7 @@ public class PanelRegistro extends javax.swing.JPanel {
         initComponents();
         this.CONTROLCLIENTE = new ClienteControl();
         this.CONTROLRECEPCIONISTAS = new RecepcionistaControl();
+        this.CONTROLADMINISTRADOR = new AdministradorControl();
     }
     
     private void limpiar(){
@@ -118,7 +121,7 @@ public class PanelRegistro extends javax.swing.JPanel {
             }
         });
 
-        lbDatos.setText("Datos:");
+        lbDatos.setText("Tipo de cliente:");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -193,7 +196,7 @@ public class PanelRegistro extends javax.swing.JPanel {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(109, Short.MAX_VALUE))
+                .addContainerGap(172, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -202,7 +205,7 @@ public class PanelRegistro extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(67, Short.MAX_VALUE))
+                .addContainerGap(91, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -249,12 +252,7 @@ public class PanelRegistro extends javax.swing.JPanel {
         String resp;
         
         if (opcion.equals("Cliente")) {
-            boolean tipoCliente;
-            if (btnDatosRegistro.getSelectedItem().toString().equals("VIP")) {
-                tipoCliente = false;
-            }else{
-                tipoCliente = true;
-            }
+            boolean tipoCliente = btnDatosRegistro.getSelectedItem().toString().equals("Estandar");
             
             resp = this.CONTROLCLIENTE.insertar(txtNombre.getText(), txtTelefono.getText(), txtDocumento.getText(), tipoCliente);
             if (resp.equals("OK")) {
@@ -275,7 +273,15 @@ public class PanelRegistro extends javax.swing.JPanel {
                 this.mensajeError(resp);
             }
         } else if(opcion.equals("Administrador")){
-            
+            boolean cargo = btnDatosRegistro.getSelectedItem().toString().equals("General");
+            resp = this.CONTROLADMINISTRADOR.insertar(txtNombre.getText(), txtTelefono.getText(), txtDocumento.getText(), cargo);
+            if (resp.equals("OK")) {
+                this.mensajeOK("Registrado recepcionista correctamente");
+                this.limpiar();
+                this.listar("");
+            }else{
+                this.mensajeError(resp);
+            }
         } else {
             JOptionPane.showMessageDialog(this, "Debes seleccionar el tipo de registro", "Sistema", JOptionPane.WARNING_MESSAGE);
         }
