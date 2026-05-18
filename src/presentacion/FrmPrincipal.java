@@ -47,16 +47,16 @@ public class FrmPrincipal extends javax.swing.JFrame {
         };
         menuBar = new javax.swing.JMenuBar();
         mnuInformacion = new javax.swing.JMenu();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem1 = new javax.swing.JMenuItem();
+        mnuContactos = new javax.swing.JMenuItem();
+        mnuRedesSociales = new javax.swing.JMenuItem();
         mnuSitio = new javax.swing.JMenu();
-        jMenuItem3 = new javax.swing.JMenuItem();
+        mnuSitioHotel = new javax.swing.JMenuItem();
         mnuReservas = new javax.swing.JMenu();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        jMenuItem5 = new javax.swing.JMenuItem();
+        mnuReservar = new javax.swing.JMenuItem();
+        mnuHabitaciones = new javax.swing.JMenuItem();
         mnuRegistros = new javax.swing.JMenu();
-        jMenuItem6 = new javax.swing.JMenuItem();
-        jMenuItem7 = new javax.swing.JMenuItem();
+        mnuRegistrar = new javax.swing.JMenuItem();
+        mnuIniciar = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         jMenuItem9 = new javax.swing.JMenuItem();
 
@@ -76,49 +76,82 @@ public class FrmPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        escritorio.setBackground(new java.awt.Color(255, 255, 255));
+
+        menuBar.setBorder(null);
+        menuBar.setPreferredSize(new java.awt.Dimension(326, 50));
+
         mnuInformacion.setText("Mas informacion");
+        mnuInformacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuInformacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem2.setText("Contactos");
-        mnuInformacion.add(jMenuItem2);
+        mnuContactos.setText("Contactos");
+        mnuContactos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuInformacion.add(mnuContactos);
 
-        jMenuItem1.setText("Redes Sociales");
-        mnuInformacion.add(jMenuItem1);
+        mnuRedesSociales.setText("Redes Sociales");
+        mnuRedesSociales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuInformacion.add(mnuRedesSociales);
 
         menuBar.add(mnuInformacion);
 
         mnuSitio.setText("Sitio");
+        mnuSitio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuSitio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem3.setText("Sitio Hotel");
-        mnuSitio.add(jMenuItem3);
+        mnuSitioHotel.setText("Sitio Hotel");
+        mnuSitioHotel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuSitio.add(mnuSitioHotel);
 
         menuBar.add(mnuSitio);
 
         mnuReservas.setText("Reservas");
+        mnuReservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuReservas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem4.setText("Reservar");
-        mnuReservas.add(jMenuItem4);
+        mnuReservar.setText("Reservar");
+        mnuReservar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuReservas.add(mnuReservar);
 
-        jMenuItem5.setText("Habitaciones");
-        mnuReservas.add(jMenuItem5);
+        mnuHabitaciones.setText("Habitaciones");
+        mnuHabitaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuHabitacionesActionPerformed(evt);
+            }
+        });
+        mnuReservas.add(mnuHabitaciones);
 
         menuBar.add(mnuReservas);
 
         mnuRegistros.setText("Registros");
+        mnuRegistros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuRegistros.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        jMenuItem6.setText("Registrar");
-        mnuRegistros.add(jMenuItem6);
-
-        jMenuItem7.setText("Iniciar");
-        jMenuItem7.addActionListener(new java.awt.event.ActionListener() {
+        mnuRegistrar.setText("Registrar");
+        mnuRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuRegistrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem7ActionPerformed(evt);
+                mnuRegistrarActionPerformed(evt);
             }
         });
-        mnuRegistros.add(jMenuItem7);
+        mnuRegistros.add(mnuRegistrar);
+
+        mnuIniciar.setText("Iniciar");
+        mnuIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuIniciar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuIniciarActionPerformed(evt);
+            }
+        });
+        mnuRegistros.add(mnuIniciar);
 
         menuBar.add(mnuRegistros);
 
+        jMenu5.setBorder(null);
         jMenu5.setText("Salir");
+        jMenu5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jMenu5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jMenu5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu5ActionPerformed(evt);
@@ -126,6 +159,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         });
 
         jMenuItem9.setText("Cerrar programa");
+        jMenuItem9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem9ActionPerformed(evt);
@@ -145,13 +179,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 641, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem7ActionPerformed
+    private void mnuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIniciarActionPerformed
         FrmCliente frm = new FrmCliente();
         escritorio.add(frm);
         frm.setVisible(true);
@@ -159,7 +193,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
         (escritorio.getWidth() - frm.getWidth()) / 2,
         (escritorio.getHeight() - frm.getHeight()) / 2
         );
-    }//GEN-LAST:event_jMenuItem7ActionPerformed
+    }//GEN-LAST:event_mnuIniciarActionPerformed
 
     private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
         // COdigo
@@ -168,6 +202,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
         System.exit(0);
     }//GEN-LAST:event_jMenuItem9ActionPerformed
+
+    private void mnuRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegistrarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_mnuRegistrarActionPerformed
+
+    private void mnuHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuHabitacionesActionPerformed
+        FrmHabitacion frm = new FrmHabitacion();
+        escritorio.add(frm);
+        frm.setVisible(true);
+        frm.setLocation(
+        (escritorio.getWidth() - frm.getWidth()) / 2,
+        (escritorio.getHeight() - frm.getHeight()) / 2
+        );
+    }//GEN-LAST:event_mnuHabitacionesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,20 +261,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
-    private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
     private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JMenuBar menuBar;
+    private javax.swing.JMenuItem mnuContactos;
+    private javax.swing.JMenuItem mnuHabitaciones;
     private javax.swing.JMenu mnuInformacion;
+    private javax.swing.JMenuItem mnuIniciar;
+    private javax.swing.JMenuItem mnuRedesSociales;
+    private javax.swing.JMenuItem mnuRegistrar;
     private javax.swing.JMenu mnuRegistros;
+    private javax.swing.JMenuItem mnuReservar;
     private javax.swing.JMenu mnuReservas;
     private javax.swing.JMenu mnuSitio;
+    private javax.swing.JMenuItem mnuSitioHotel;
     // End of variables declaration//GEN-END:variables
 
 }
