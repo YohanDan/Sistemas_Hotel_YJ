@@ -6,13 +6,14 @@ package presentacion;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import javax.swing.JDesktopPane;
 
 /**
  *
  * @author DANY
  */
 public class FrmPrincipal extends javax.swing.JFrame {
-
+    
     /**
      * Creates new form FrmPrincipal
      */
@@ -109,8 +110,13 @@ public class FrmPrincipal extends javax.swing.JFrame {
         mnuReservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         mnuReservas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
 
-        mnuReservar.setText("Reservar");
+        mnuReservar.setText("Reservas");
         mnuReservar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        mnuReservar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuReservarActionPerformed(evt);
+            }
+        });
         mnuReservas.add(mnuReservar);
 
         mnuHabitaciones.setText("Habitaciones");
@@ -208,6 +214,7 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_mnuRegistrarActionPerformed
 
     private void mnuHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuHabitacionesActionPerformed
+        
         FrmHabitacion frm = new FrmHabitacion();
         escritorio.add(frm);
         frm.setVisible(true);
@@ -215,7 +222,20 @@ public class FrmPrincipal extends javax.swing.JFrame {
         (escritorio.getWidth() - frm.getWidth()) / 2,
         (escritorio.getHeight() - frm.getHeight()) / 2
         );
+        
     }//GEN-LAST:event_mnuHabitacionesActionPerformed
+        
+    private void mnuReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuReservarActionPerformed
+        
+        FrmReserva frm = new FrmReserva(escritorio);
+        escritorio.add(frm);
+        frm.setVisible(true);
+        frm.setLocation(
+        (escritorio.getWidth() - frm.getWidth()) / 2,
+        (escritorio.getHeight() - frm.getHeight()) / 2
+        );
+        
+    }//GEN-LAST:event_mnuReservarActionPerformed
 
     /**
      * @param args the command line arguments

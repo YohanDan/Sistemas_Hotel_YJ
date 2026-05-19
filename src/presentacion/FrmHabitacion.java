@@ -141,7 +141,7 @@ public class FrmHabitacion extends javax.swing.JInternalFrame {
             .addGap(0, 218, Short.MAX_VALUE)
         );
 
-        OpEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Disponible", "Ocupado" }));
+        OpEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Todos", "Disponible", "Reservado" }));
         OpEstado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 OpEstadoActionPerformed(evt);

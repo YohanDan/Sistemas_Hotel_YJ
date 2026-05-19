@@ -89,7 +89,7 @@ public class ClienteControl {
     
     public String eliminar(int id){
         if (DATOS.eliminar(id)) {
-            return "OK";
+            return "Eleminado correctamente";
         }else{
             return "No se puede eliminar el registro";
         }
