@@ -19,7 +19,6 @@ public class FrmPrincipal extends javax.swing.JFrame {
      */
     public FrmPrincipal() {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -38,6 +37,9 @@ public class FrmPrincipal extends javax.swing.JFrame {
         jMenuBar2 = new javax.swing.JMenuBar();
         jMenu3 = new javax.swing.JMenu();
         jMenu4 = new javax.swing.JMenu();
+        jSeparator1 = new javax.swing.JSeparator();
+        jSeparator2 = new javax.swing.JSeparator();
+        jPopupMenu1 = new javax.swing.JPopupMenu();
         escritorio = new javax.swing.JDesktopPane(){
             @Override
             protected void paintComponent(Graphics g){
@@ -46,20 +48,17 @@ public class FrmPrincipal extends javax.swing.JFrame {
                 g.fillRect(0,0, getWidth(), getHeight());
             }
         };
-        menuBar = new javax.swing.JMenuBar();
-        mnuInformacion = new javax.swing.JMenu();
-        mnuContactos = new javax.swing.JMenuItem();
-        mnuRedesSociales = new javax.swing.JMenuItem();
-        mnuSitio = new javax.swing.JMenu();
-        mnuSitioHotel = new javax.swing.JMenuItem();
-        mnuReservas = new javax.swing.JMenu();
-        mnuReservar = new javax.swing.JMenuItem();
-        mnuHabitaciones = new javax.swing.JMenuItem();
-        mnuRegistros = new javax.swing.JMenu();
-        mnuRegistrar = new javax.swing.JMenuItem();
-        mnuIniciar = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        jMenuItem9 = new javax.swing.JMenuItem();
+        btnInformacion = new javax.swing.JButton();
+        btnHabitacion = new javax.swing.JButton();
+        btnReserva = new javax.swing.JButton();
+        btnRegistro = new javax.swing.JButton();
+        btnIniciar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
 
         jMenu1.setText("File");
         jMenuBar1.add(jMenu1);
@@ -78,165 +77,169 @@ public class FrmPrincipal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         escritorio.setBackground(new java.awt.Color(255, 255, 255));
+        escritorio.setAutoscrolls(true);
 
-        menuBar.setBorder(null);
-        menuBar.setPreferredSize(new java.awt.Dimension(326, 50));
+        btnInformacion.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnInformacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnInformacion.setText("Mas informacion");
+        btnInformacion.setBorder(null);
+        btnInformacion.setContentAreaFilled(false);
+        btnInformacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        escritorio.add(btnInformacion);
+        btnInformacion.setBounds(380, 40, 130, 30);
 
-        mnuInformacion.setText("Mas informacion");
-        mnuInformacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuInformacion.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        mnuContactos.setText("Contactos");
-        mnuContactos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuInformacion.add(mnuContactos);
-
-        mnuRedesSociales.setText("Redes Sociales");
-        mnuRedesSociales.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuInformacion.add(mnuRedesSociales);
-
-        menuBar.add(mnuInformacion);
-
-        mnuSitio.setText("Sitio");
-        mnuSitio.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuSitio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        mnuSitioHotel.setText("Sitio Hotel");
-        mnuSitioHotel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuSitio.add(mnuSitioHotel);
-
-        menuBar.add(mnuSitio);
-
-        mnuReservas.setText("Reservas");
-        mnuReservas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuReservas.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        mnuReservar.setText("Reservas");
-        mnuReservar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuReservar.addActionListener(new java.awt.event.ActionListener() {
+        btnHabitacion.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnHabitacion.setForeground(new java.awt.Color(255, 255, 255));
+        btnHabitacion.setText("Habitacion");
+        btnHabitacion.setBorder(null);
+        btnHabitacion.setContentAreaFilled(false);
+        btnHabitacion.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnHabitacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuReservarActionPerformed(evt);
+                btnHabitacionActionPerformed(evt);
             }
         });
-        mnuReservas.add(mnuReservar);
+        escritorio.add(btnHabitacion);
+        btnHabitacion.setBounds(530, 40, 100, 30);
 
-        mnuHabitaciones.setText("Habitaciones");
-        mnuHabitaciones.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuHabitaciones.addActionListener(new java.awt.event.ActionListener() {
+        btnReserva.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnReserva.setForeground(new java.awt.Color(255, 255, 255));
+        btnReserva.setText("Reserva");
+        btnReserva.setBorder(null);
+        btnReserva.setContentAreaFilled(false);
+        btnReserva.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnReserva.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuHabitacionesActionPerformed(evt);
+                btnReservaActionPerformed(evt);
             }
         });
-        mnuReservas.add(mnuHabitaciones);
+        escritorio.add(btnReserva);
+        btnReserva.setBounds(650, 40, 80, 30);
 
-        menuBar.add(mnuReservas);
+        btnRegistro.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnRegistro.setForeground(new java.awt.Color(255, 255, 255));
+        btnRegistro.setText("Registro");
+        btnRegistro.setBorder(null);
+        btnRegistro.setContentAreaFilled(false);
+        btnRegistro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        escritorio.add(btnRegistro);
+        btnRegistro.setBounds(750, 40, 80, 30);
 
-        mnuRegistros.setText("Registros");
-        mnuRegistros.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuRegistros.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-
-        mnuRegistrar.setText("Registrar");
-        mnuRegistrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuRegistrar.addActionListener(new java.awt.event.ActionListener() {
+        btnIniciar.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnIniciar.setForeground(new java.awt.Color(255, 255, 255));
+        btnIniciar.setText("Iniciar");
+        btnIniciar.setBorder(null);
+        btnIniciar.setContentAreaFilled(false);
+        btnIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnIniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuRegistrarActionPerformed(evt);
+                btnIniciarActionPerformed(evt);
             }
         });
-        mnuRegistros.add(mnuRegistrar);
+        escritorio.add(btnIniciar);
+        btnIniciar.setBounds(850, 40, 80, 30);
 
-        mnuIniciar.setText("Iniciar");
-        mnuIniciar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        mnuIniciar.addActionListener(new java.awt.event.ActionListener() {
+        btnSalir.setFont(new java.awt.Font("Segoe UI Black", 0, 14)); // NOI18N
+        btnSalir.setForeground(new java.awt.Color(255, 255, 255));
+        btnSalir.setText("Salir");
+        btnSalir.setBorder(null);
+        btnSalir.setContentAreaFilled(false);
+        btnSalir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnuIniciarActionPerformed(evt);
+                btnSalirActionPerformed(evt);
             }
         });
-        mnuRegistros.add(mnuIniciar);
+        escritorio.add(btnSalir);
+        btnSalir.setBounds(940, 40, 80, 30);
 
-        menuBar.add(mnuRegistros);
+        jLabel2.setFont(new java.awt.Font("Segoe UI Black", 0, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("DE LUJO!!!");
+        escritorio.add(jLabel2);
+        jLabel2.setBounds(150, 290, 320, 80);
 
-        jMenu5.setBorder(null);
-        jMenu5.setText("Salir");
-        jMenu5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenu5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jMenu5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenu5ActionPerformed(evt);
-            }
-        });
+        jLabel3.setFont(new java.awt.Font("Segoe UI Black", 0, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel3.setText("QUIERE RESERVAR UNA");
+        escritorio.add(jLabel3);
+        jLabel3.setBounds(150, 170, 600, 80);
 
-        jMenuItem9.setText("Cerrar programa");
-        jMenuItem9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem9ActionPerformed(evt);
-            }
-        });
-        jMenu5.add(jMenuItem9);
+        jLabel4.setFont(new java.awt.Font("Segoe UI Black", 0, 48)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("DE NUESTRAS HABITACIONES");
+        escritorio.add(jLabel4);
+        jLabel4.setBounds(150, 230, 750, 80);
 
-        menuBar.add(jMenu5);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/presentacion/imagenes/fondoPrincipal.jpg"))); // NOI18N
+        escritorio.add(jLabel1);
+        jLabel1.setBounds(0, 0, 1380, 900);
 
-        setJMenuBar(menuBar);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 1188, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 1197, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 614, Short.MAX_VALUE)
+            .addComponent(escritorio, javax.swing.GroupLayout.DEFAULT_SIZE, 697, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void mnuIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuIniciarActionPerformed
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnIniciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIniciarActionPerformed
+
         FrmCliente frm = new FrmCliente();
         escritorio.add(frm);
         frm.setVisible(true);
         frm.setLocation(
-        (escritorio.getWidth() - frm.getWidth()) / 2,
-        (escritorio.getHeight() - frm.getHeight()) / 2
+            (escritorio.getWidth() - frm.getWidth()) / 2,
+            (escritorio.getHeight() - frm.getHeight()) / 2
         );
-    }//GEN-LAST:event_mnuIniciarActionPerformed
 
-    private void jMenu5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu5ActionPerformed
-        // COdigo
-    }//GEN-LAST:event_jMenu5ActionPerformed
+    }//GEN-LAST:event_btnIniciarActionPerformed
 
-    private void jMenuItem9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem9ActionPerformed
-        System.exit(0);
-    }//GEN-LAST:event_jMenuItem9ActionPerformed
+    private void btnReservaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReservaActionPerformed
 
-    private void mnuRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuRegistrarActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_mnuRegistrarActionPerformed
-
-    private void mnuHabitacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuHabitacionesActionPerformed
-        
-        FrmHabitacion frm = new FrmHabitacion();
-        escritorio.add(frm);
-        frm.setVisible(true);
-        frm.setLocation(
-        (escritorio.getWidth() - frm.getWidth()) / 2,
-        (escritorio.getHeight() - frm.getHeight()) / 2
-        );
-        
-    }//GEN-LAST:event_mnuHabitacionesActionPerformed
-        
-    private void mnuReservarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuReservarActionPerformed
-        
         FrmReserva frm = new FrmReserva(escritorio);
         escritorio.add(frm);
         frm.setVisible(true);
         frm.setLocation(
-        (escritorio.getWidth() - frm.getWidth()) / 2,
-        (escritorio.getHeight() - frm.getHeight()) / 2
+            (escritorio.getWidth() - frm.getWidth()) / 2,
+            (escritorio.getHeight() - frm.getHeight()) / 2
         );
-        
-    }//GEN-LAST:event_mnuReservarActionPerformed
 
+    }//GEN-LAST:event_btnReservaActionPerformed
+
+    private void btnHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHabitacionActionPerformed
+
+        FrmHabitacion frm = new FrmHabitacion();
+        escritorio.add(frm);
+        frm.setVisible(true);
+        frm.setLocation(
+            (escritorio.getWidth() - frm.getWidth()) / 2,
+            (escritorio.getHeight() - frm.getHeight()) / 2
+        );
+
+    }//GEN-LAST:event_btnHabitacionActionPerformed
+        
     /**
      * @param args the command line arguments
      */
@@ -273,28 +276,28 @@ public class FrmPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnHabitacion;
+    private javax.swing.JButton btnInformacion;
+    private javax.swing.JButton btnIniciar;
+    private javax.swing.JButton btnRegistro;
+    private javax.swing.JButton btnReserva;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JDesktopPane escritorio;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuBar jMenuBar2;
     private javax.swing.JMenuItem jMenuItem8;
-    private javax.swing.JMenuItem jMenuItem9;
-    private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem mnuContactos;
-    private javax.swing.JMenuItem mnuHabitaciones;
-    private javax.swing.JMenu mnuInformacion;
-    private javax.swing.JMenuItem mnuIniciar;
-    private javax.swing.JMenuItem mnuRedesSociales;
-    private javax.swing.JMenuItem mnuRegistrar;
-    private javax.swing.JMenu mnuRegistros;
-    private javax.swing.JMenuItem mnuReservar;
-    private javax.swing.JMenu mnuReservas;
-    private javax.swing.JMenu mnuSitio;
-    private javax.swing.JMenuItem mnuSitioHotel;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPopupMenu jPopupMenu1;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
 
 }
